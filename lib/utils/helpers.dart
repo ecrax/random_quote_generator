@@ -10,4 +10,14 @@ class Quote {
 
   final String text;
   final Author author;
+
+  factory Quote.fromJson(Map<String, dynamic> json) {
+    return Quote(
+      text: json["data"][0]["quoteText"],
+      author: Author(
+        name: json["data"][0]["quoteAuthor"],
+        note: json["data"][0]["quoteGenre"],
+      ),
+    );
+  }
 }
