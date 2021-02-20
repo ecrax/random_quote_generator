@@ -23,7 +23,11 @@ class _AuthorTextState extends State<AuthorText> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 120, left: 68, right: 68),
+      margin: EdgeInsets.only(
+        top: MediaQuery.of(context).size.height * 0.11,
+        left: MediaQuery.of(context).size.width * 0.07,
+        right: MediaQuery.of(context).size.width * 0.07,
+      ),
       child: InkWell(
         mouseCursor: SystemMouseCursors.click,
         child: GestureDetector(
@@ -43,14 +47,16 @@ class _AuthorTextState extends State<AuthorText> {
             },
             child: Container(
               color: bgColor,
-              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+              padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * 0.03,
+                  vertical: MediaQuery.of(context).size.height * 0.04),
               child: Row(
                 children: [
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        SelectableText(
+                        Text(
                           widget.author.name,
                           style: TextStyle(
                             fontSize: 24,
@@ -58,7 +64,7 @@ class _AuthorTextState extends State<AuthorText> {
                             color: txtColor,
                           ),
                         ),
-                        SelectableText(
+                        Text(
                           widget.author.note,
                           style: TextStyle(
                             fontSize: 14,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class RandomizeButton extends StatelessWidget {
-  const RandomizeButton({
+class CloseButton extends StatelessWidget {
+  const CloseButton({
     Key key,
     this.onTap,
   }) : super(key: key);
@@ -21,13 +21,13 @@ class RandomizeButton extends StatelessWidget {
           FlatButton.icon(
             onPressed: onTap,
             icon: Text(
-              "random",
+              "close",
               style: TextStyle(
                 fontSize: 18,
                 color: Color(0xFF4F4F4F),
               ),
             ),
-            label: Icon(Icons.refresh),
+            label: Icon(Icons.close),
           )
         ],
       ),

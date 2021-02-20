@@ -1,12 +1,13 @@
 import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
+import 'package:random_quote_generator/screens/author_quotes_screen.dart';
 import 'package:random_quote_generator/utils/helpers.dart';
 import 'package:random_quote_generator/widgets/author_text.dart';
+import 'package:random_quote_generator/widgets/footer.dart';
 import 'package:random_quote_generator/widgets/quote_text.dart';
 import 'package:random_quote_generator/widgets/randomize_button.dart';
-
-import 'package:http/http.dart' as http;
 
 class RandomQuoteScreen extends StatefulWidget {
   const RandomQuoteScreen({Key key}) : super(key: key);
@@ -37,18 +38,14 @@ class _RandomQuoteScreenState extends State<RandomQuoteScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final Quote quote = Quote(
-      text:
-          "\"The first rule of any technology used in a business is that automation applied to an efficient operation will magnify the efficiency. The second is that automation applied to an inefficient operation will magnify the inefficiency.\"",
-      author: Author(name: "Bill Gates", note: "business"),
-    );
-
     return Material(
       child: SingleChildScrollView(
+        physics: ScrollPhysics(),
         child: Container(
           color: Colors.white,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               RandomizeButton(
                 onTap: () {
@@ -62,8 +59,10 @@ class _RandomQuoteScreenState extends State<RandomQuoteScreen> {
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     return Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 100),
-                      padding: const EdgeInsets.only(top: 200),
+                      margin: EdgeInsets.symmetric(
+                          horizontal: MediaQuery.of(context).size.width * 0.1),
+                      padding: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * 0.19),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -74,6 +73,14 @@ class _RandomQuoteScreenState extends State<RandomQuoteScreen> {
                             author: snapshot.data.author,
                             onTap: () {
                               // Redirect to new screen with authors quotes on it
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => AuthorQuotesScreen(
+                                    authorName: snapshot.data.author.name,
+                                  ),
+                                ),
+                              );
                             },
                           ),
                         ],
@@ -87,7 +94,14 @@ class _RandomQuoteScreenState extends State<RandomQuoteScreen> {
                     child: CircularProgressIndicator(),
                   );
                 },
-              )
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.13,
+                  bottom: MediaQuery.of(context).size.height * 0.02,
+                ),
+                child: Footer(),
+              ),
             ],
           ),
         ),
