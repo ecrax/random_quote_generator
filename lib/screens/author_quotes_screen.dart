@@ -48,6 +48,7 @@ class _AuthorQuotesScreenState extends State<AuthorQuotesScreen> {
       child: SingleChildScrollView(
         physics: ScrollPhysics(),
         child: Container(
+          color: Colors.white,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

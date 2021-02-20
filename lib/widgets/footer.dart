@@ -21,7 +21,6 @@ class Footer extends StatelessWidget {
             style: GoogleFonts.montserrat(
               fontSize: 14,
               fontWeight: FontWeight.w700,
-              decoration: TextDecoration.underline,
               color: Color(0xFF828282),
             ),
           ),
