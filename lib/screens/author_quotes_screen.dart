@@ -68,6 +68,7 @@ class _AuthorQuotesScreenState extends State<AuthorQuotesScreen> {
               ),
               Divider(
                 height: MediaQuery.of(context).size.height * 0.13,
+                color: Colors.white,
               ),
               FutureBuilder(
                 future: futureQuoteList,
@@ -81,6 +82,7 @@ class _AuthorQuotesScreenState extends State<AuthorQuotesScreen> {
                         shrinkWrap: true,
                         separatorBuilder: (context, index) => Divider(
                           height: MediaQuery.of(context).size.height * 0.13,
+                          color: Colors.white,
                         ),
                         itemCount: snapshot.data.length,
                         itemBuilder: (context, index) {
@@ -98,6 +100,7 @@ class _AuthorQuotesScreenState extends State<AuthorQuotesScreen> {
               ),
               Divider(
                 height: MediaQuery.of(context).size.height * 0.13,
+                color: Colors.white,
               ),
               Padding(
                 padding: EdgeInsets.only(
