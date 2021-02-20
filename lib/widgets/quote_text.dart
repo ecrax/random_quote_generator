@@ -12,7 +12,9 @@ class QuoteText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 60),
+      padding: EdgeInsets.symmetric(
+        horizontal: MediaQuery.of(context).size.width * 0.06,
+      ),
       decoration: BoxDecoration(
         border: Border(
           left: BorderSide(
